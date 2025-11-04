@@ -1,0 +1,8 @@
+{
+  "svelte.enable-ts-plugin": true,
+  "rust-analyzer.checkOnSave": false,
+  "rust-analyzer.cargo.targetDir": true,
+  "rust-analyzer.server.extraEnv": {
+    "CARGO_TARGET_DIR": "${workspaceFolder}/src-tauri/target/analyzer"
+  },
+}
