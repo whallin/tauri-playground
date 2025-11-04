@@ -17,15 +17,13 @@ jobs:
 
       - uses: oven-sh/setup-bun@v2
 
-      # Might be faster, depending on CPU decompression, to download Bun 
-      # dependencies rather than extracting from a cache
-      #- name: Cache Bun dependencies
-      #  uses: actions/cache@v4
-      #  with:
-      #    path: ~/.bun/install/cache
-      #    key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lock') }}
-      #    restore-keys: |
-      #      ${{ runner.os }}-bun-
+      - name: Cache Bun dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.bun/install/cache
+          key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-bun-
 
       - name: Install Bun dependencies
         run: bun ci
